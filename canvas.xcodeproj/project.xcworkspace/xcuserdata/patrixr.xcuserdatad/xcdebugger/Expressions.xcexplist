@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "Canvas::setColor(int, int, ofColor_&lt;unsigned char&gt;):Canvas.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "col != baseColors.getColor(x, y)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ofApp::draw():ofApp.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "Player::Player(float, float):Player.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "geometry.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Canvas::reset():Canvas.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "image.getPixels()[1050]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Viewport::begin():Viewport.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "geometry.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Player::computeRotation() const:Player.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "pow(2,2)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ofApp::setup():ofApp.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "(int) c.r">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Player::draw():Player.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "computeRotation()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Drawable::getGeometry():Drawable.h">
+         <PersistentStrings>
+            <PersistentString
+               value = "this-&gt;geometry.getX()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Aura::update(int):Aura.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "(int) color.g">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Controller::keyPressed(int):Controller.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "(int)&apos;d&apos;">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
