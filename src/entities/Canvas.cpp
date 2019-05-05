@@ -7,6 +7,7 @@
 
 #include "Canvas.h"
 
+//--------------------------------------------------------------
 Canvas::Canvas(int w, int h, int tileSize)
     : Drawable(0, 0, w * tileSize, h * tileSize), tileSize(tileSize)
 {
@@ -20,6 +21,7 @@ Canvas::Canvas(int w, int h, int tileSize)
 }
 
 
+//--------------------------------------------------------------
 void Canvas::draw() {
     ofPushMatrix();
     ofScale(tileSize);
@@ -27,10 +29,12 @@ void Canvas::draw() {
     ofPopMatrix();
 }
 
+//--------------------------------------------------------------
 void Canvas::update(int elapsed) {
     image.update();
 }
 
+//--------------------------------------------------------------
 ofVec2f Canvas::overflownPos(int x, int y) const {
     if (x < 0) {
         x = width + x;
@@ -47,6 +51,7 @@ ofVec2f Canvas::overflownPos(int x, int y) const {
     return ofVec2f(x, y);
 }
 
+//--------------------------------------------------------------
 void Canvas::setColor(int x, int y, ofColor col, float brightness) {
     ofVec2f pos = overflownPos(x, y);
     
@@ -57,11 +62,13 @@ void Canvas::setColor(int x, int y, ofColor col, float brightness) {
     }
 }
 
+//--------------------------------------------------------------
 ofColor Canvas::getColor(int x, int y) const {
     ofVec2f pos = overflownPos(x, y);
     return baseColors.getColor(pos.x, pos.x);
 }
 
+//--------------------------------------------------------------
 void Canvas::increaseBrightness(int x, int y, float val) {
     ofVec2f pos = overflownPos(x, y);
     ofColor c(image.getColor(pos.x, pos.y));
@@ -72,10 +79,12 @@ void Canvas::increaseBrightness(int x, int y, float val) {
     image.setColor(pos.x, pos.y, c);
 }
 
+//--------------------------------------------------------------
 int Canvas::getTileSize() const {
     return tileSize;
 }
 
+//--------------------------------------------------------------
 ofVec2f Canvas::getRelativePos(const Drawable & obj) const {
     ofVec2f pos = obj.getPosition();
     return ofVec2f(
@@ -84,6 +93,7 @@ ofVec2f Canvas::getRelativePos(const Drawable & obj) const {
     );
 }
 
+//--------------------------------------------------------------
 void Canvas::reset(ofImage & img) {
     int width = img.getWidth();
     int height = img.getHeight();
@@ -96,7 +106,14 @@ void Canvas::reset(ofImage & img) {
     img.update();
 }
 
+//--------------------------------------------------------------
 void Canvas::reset() {
     reset(image);
     reset(baseColors);
 }
+
+//--------------------------------------------------------------
+bool Canvas::collideable() const {
+    return false;
+}
+

@@ -32,6 +32,7 @@ public:
     
     void        draw() override;
     void        update(int elapsed) override;
+    bool        collideable() const override;
     ofVec2f     getRelativePos(const Drawable & obj) const;
     void        setColor(int x, int y, ofColor col, float brightness = 50);
     ofColor     getColor(int x, int y) const;

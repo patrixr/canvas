@@ -1,28 +1,9 @@
 #pragma once
 
-#include <vector>
 #include "ofMain.h"
-#include "Canvas.h"
-#include "Player.h"
-#include "Viewport.h"
-#include "Controller.h"
-#include "Aura.h"
-#include "constants.h"
-
-using namespace std;
-
-typedef vector<Drawable*> ObjectList;
+#include "Game.h"
 
 class ofApp : public ofBaseApp {
-    
-    private:
-        Canvas              *canvas;
-        Player              *player;
-        Viewport            *viewport;
-        Controller          *controller;
-        ObjectList          objects;
-    
-    
 	public:
 		void setup();
 		void update();

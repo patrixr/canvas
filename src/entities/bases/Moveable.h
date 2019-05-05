@@ -39,6 +39,7 @@ public:
     void setAreaBounds(ofRectangle bounds, bool enableLoop = false);
     
     void update(int elapsed) override;
+    void draw() override;
     
 };
 

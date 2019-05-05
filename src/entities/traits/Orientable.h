@@ -20,6 +20,11 @@ public:
     Orientable();
     
     float getRotation() const;
+    const ofVec2f & getOrientation() const;
+    const float getOrientationX() const;
+    const float getOrientationY() const;
+    float setOrientation(float x, float y);
+    float setOrientation(ofVec2f v);
     void addOrientationX(float x);
     void addOrientationY(float y);
 };

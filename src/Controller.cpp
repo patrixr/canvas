@@ -7,10 +7,22 @@
 
 #include "Controller.h"
 
+//--------------------------------------------------------------
 Controller::Controller(Player *p) {
     this->player = p;
 }
 
+//--------------------------------------------------------------
+bool Controller::isOrientationKey(int key) const {
+    return (
+        key == OF_KEY_UP ||
+        key == OF_KEY_DOWN ||
+        key == OF_KEY_RIGHT ||
+        key == OF_KEY_LEFT
+    );
+}
+
+//--------------------------------------------------------------
 void Controller::keyPressed(int key) {
     if (pressedKeys[key]) {
         return;
@@ -48,6 +60,7 @@ void Controller::keyPressed(int key) {
     }
 }
 
+//--------------------------------------------------------------
 void Controller::keyReleased(int key) {
     if (!pressedKeys[key]) {
         return;

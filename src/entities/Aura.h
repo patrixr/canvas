@@ -13,25 +13,23 @@
 #include "ofMain.h"
 #include "Drawable.h"
 #include "Canvas.h"
+#include "Game.h"
 #include "constants.h"
 
 class Aura : public Drawable {
     
 private:
-    
-    Canvas          *canvas;
-    Drawable        *parent;
     ofColor         color;
     uint            expansionRate;
     uint            radius;
     uint            intensity;
     
 public:
-    
-    Aura(ofColor color, Canvas *canvas);
-    Aura(ofColor color, Canvas *canvas, Drawable *parent);
+    Aura(ofColor color, uint radius, Drawable *parent = NULL);
+    Aura(ofColor color, Drawable *parent = NULL);
 
     void setColor(ofColor c);
+    const ofColor & getColor() const;
     void setExpansionRate(unsigned int rate);
     void setRadius(unsigned int r);
     void setIntensity(uint val);

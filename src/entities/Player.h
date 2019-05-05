@@ -10,15 +10,24 @@
 
 #include <stdio.h>
 #include "ofMain.h"
+#include "Bullet.h"
+#include "GameEvents.h"
 #include "constants.h"
 #include "bases/Moveable.h"
 #include "traits/Orientable.h"
+#include "Aura.h"
+
+class Aura;
 
 class Player : public Moveable, public Orientable {
     
 private:
     
+    Aura            *aura;
     ofImage         image;
+    int             shootTick;
+    
+    bool isShooting() const;
     
 public:
     Player(float x, float y);

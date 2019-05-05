@@ -12,12 +12,16 @@
 #include "Player.h"
 #include <map>
 
+class Player;
+
 class Controller {
     
 private:
     
     Player *player;
     std::map<int, bool> pressedKeys;
+    
+    bool isOrientationKey(int key) const;
     
 public:
     Controller(Player *p);

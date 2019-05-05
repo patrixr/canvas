@@ -9,15 +9,43 @@
 
 Orientable::Orientable() : orientation(0, 0) {}
 
-float Orientable::getRotation() const {
-    ofVec2f down(0, - 1);
-    return - orientation.angle(down);
+//--------------------------------------------------------------
+const ofVec2f & Orientable::getOrientation() const {
+    return orientation;
 }
 
+//--------------------------------------------------------------
+const float Orientable::getOrientationX() const {
+    return getOrientation().x;
+}
+
+//--------------------------------------------------------------
+const float Orientable::getOrientationY() const {
+    return getOrientation().y;
+}
+
+//--------------------------------------------------------------
+float Orientable::setOrientation(float x, float y) {
+    orientation.set(x, y);
+}
+
+//--------------------------------------------------------------
+float Orientable::setOrientation(ofVec2f v) {
+    setOrientation(v.x, v.y);
+}
+
+//--------------------------------------------------------------
+float Orientable::getRotation() const {
+    ofVec2f down(0, - 1);
+    return - getOrientation().angle(down);
+}
+
+//--------------------------------------------------------------
 void Orientable::addOrientationX(float x) {
-    orientation.set(orientation.x + x, orientation.y);
+    setOrientation(orientation.x + x, orientation.y);
 };
 
+//--------------------------------------------------------------
 void Orientable::addOrientationY(float y) {
-    orientation.set(orientation.x, orientation.y + y);
+    setOrientation(orientation.x, orientation.y + y);
 };

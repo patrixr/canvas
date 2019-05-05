@@ -2,102 +2,96 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    objects.clear();
-    
-    canvas = new Canvas(CANVAS_W, CANVAS_H, TILE_SIZE);
-    player = new Player(250, 250);
-    player->setSpeed(1);
-    player->setAreaBounds(canvas->getGeometry(), true);
-    viewport = new Viewport();
-    viewport->follow(player);
-    controller = new Controller(player);
-    
-    objects.push_back(canvas);
-    objects.push_back(player);
-    
-    Aura *aura = new Aura(ofColor::teal, canvas, player);
-    aura->setRadius(150);
-    
-    objects.push_back(aura);
-
-    ofResetElapsedTimeCounter();
+    Game::newGame();
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    int dt = ofGetElapsedTimeMillis();
-    
-    for (int i = 0; i < objects.size(); ++i) {
-        objects[i]->update(dt);
+    if (Game::isRunning()) {
+        Game::getCurrentGame().update();
     }
-    
-    ofResetElapsedTimeCounter();
-    
-    std::stringstream strm;
-    strm << "fps: " << ofGetFrameRate();
-    ofSetWindowTitle(strm.str());
 }
 
 //--------------------------------------------------------------
 void ofApp::draw() {
-    viewport->begin();
-    for (int i = 0; i < objects.size(); ++i) {
-        objects[i]->draw();
+    if (Game::isRunning()) {
+        Game::getCurrentGame().draw();
     }
-    viewport->end();
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    controller->keyPressed(key);
+    if (Game::isRunning()) {
+        Game::getCurrentGame().keyPressed(key);
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-    controller->keyReleased(key);
+    if (Game::isRunning()) {
+        Game::getCurrentGame().keyReleased(key);
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y ){
-
+    if (Game::isRunning()) {
+        Game::getCurrentGame().mouseMoved(x, y);
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
-
+    if (Game::isRunning()) {
+        Game::getCurrentGame().mouseDragged(x, y, button);
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-
+    if (Game::isRunning()) {
+        Game::getCurrentGame().mousePressed(x, y, button);
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-
+    if (Game::isRunning()) {
+        Game::getCurrentGame().mouseReleased(x, y, button);
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseEntered(int x, int y){
-
+    if (Game::isRunning()) {
+        Game::getCurrentGame().mouseEntered(x, y);
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseExited(int x, int y){
-
+    if (Game::isRunning()) {
+        Game::getCurrentGame().mouseExited(x, y);
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::windowResized(int w, int h){
-
+    if (Game::isRunning()) {
+        Game::getCurrentGame().windowResized(w, h);
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::gotMessage(ofMessage msg){
-
+    if (Game::isRunning()) {
+        Game::getCurrentGame().gotMessage(msg);
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::dragEvent(ofDragInfo dragInfo){ 
-
+    if (Game::isRunning()) {
+        Game::getCurrentGame().dragEvent(dragInfo);
+    }
 }
