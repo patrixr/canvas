@@ -16,6 +16,9 @@
 #include "Game.h"
 #include "constants.h"
 
+class Game;
+class GameEvents;
+
 class Aura : public Drawable {
     
 private:
@@ -23,15 +26,22 @@ private:
     uint            expansionRate;
     uint            radius;
     uint            intensity;
+    bool            noColor;
+    
     
 public:
+    Aura(ofColor color, uint radius, float x, float y);
     Aura(ofColor color, uint radius, Drawable *parent = NULL);
     Aura(ofColor color, Drawable *parent = NULL);
+    Aura(uint radius, Drawable *parent = NULL);
+    Aura();
 
+    void setNoColor();
     void setColor(ofColor c);
     const ofColor & getColor() const;
     void setExpansionRate(unsigned int rate);
     void setRadius(unsigned int r);
+    float getRadius() const;
     void setIntensity(uint val);
     void update(int elapsed) override;
     void draw() override;

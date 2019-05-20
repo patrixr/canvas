@@ -27,20 +27,7 @@ void Moveable::setVelocityX(ofVec2f v) {
 
 //--------------------------------------------------------------
 void Moveable::setVelocity(float x, float y) {
-    if (x == 0 && y == 0) {
-        acceleration = 0;
-    }
-    velocity.set(x, y);
-}
-
-//--------------------------------------------------------------
-void Moveable::addVelocityX(float x) {
-    setVelocity(velocity.x + x, velocity.y);
-}
-
-//--------------------------------------------------------------
-void Moveable::addVelocityY(float y) {
-    setVelocity(velocity.x, velocity.y + y);
+    targetVelocity.set(x, y);
 }
 
 //--------------------------------------------------------------
@@ -80,7 +67,9 @@ float Moveable::computeAxisPosition(float val, float addedValue, float min, floa
 
 //--------------------------------------------------------------
 void Moveable::update(int elapsed) {
-    acceleration = ofClamp(acceleration + 0.05, 0, 1);
+    acceleration = 1;//ofClamp(acceleration + 0.05, 0, 1);
+    
+    velocity += 0.05 * (targetVelocity - velocity);
     
     float mv        = elapsed * speed * acceleration;
     float x         = geometry.x;

@@ -8,6 +8,8 @@
 #ifndef constants_h
 #define constants_h
 
+#include "entities.h"
+
 #define DEBUG_SHOW_HITBOXES true
 
 #define TILE_SIZE 30

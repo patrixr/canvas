@@ -24,6 +24,7 @@ protected:
     Drawable            *parent;
     int                 ttl;
     bool                alive;
+    uint                type;
     
 public:
     
@@ -37,6 +38,8 @@ public:
     
     const ofVec2f           getPosition() const;
     const ofRectangle &     getGeometry() const;
+    void                    setPosition(float x, float y);
+    void                    setGeometry(float x, float y, float w, float h);
     float                   getX() const;
     float                   getY() const;
     float                   getWidth() const;
@@ -50,9 +53,11 @@ public:
     bool                    intersects(const Drawable & other) const;
     void                    processCollision(Drawable * other);
     void                    processCollision(Drawable & other);
+    void                    setType(uint type);
+    uint                    getType() const;
+    bool                    isOfType(uint type) const;
     virtual void            draw();
     virtual void            update(int elapsed);
-    virtual uint            getType() const;
     virtual void            onCollision(const Drawable &other);
     virtual bool            collideable() const;
 };

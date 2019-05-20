@@ -9,7 +9,7 @@
 
 //--------------------------------------------------------------
 Drawable::Drawable(float x, float y, float w, float h, Drawable *parent)
-    : geometry(x,y,w,h), parent(parent), alive(true), ttl(-1) {};
+    : geometry(x,y,w,h), parent(parent), alive(true), ttl(-1), type(0) {};
 
 //--------------------------------------------------------------
 Drawable::Drawable(float x, float y, Drawable *parent) : Drawable(x,y, 0, 0, parent) {};
@@ -42,9 +42,20 @@ const ofVec2f Drawable::getPosition() const {
 };
 
 //--------------------------------------------------------------
+void Drawable::setPosition(float x, float y) {
+    geometry.setX(x);
+    geometry.setY(y);
+};
+
+//--------------------------------------------------------------
 const ofRectangle & Drawable::getGeometry() const {
     return geometry;
 };
+
+//--------------------------------------------------------------
+void Drawable::setGeometry(float x, float y, float w, float h) {
+    geometry.set(x, y, w, h);
+}
 
 //--------------------------------------------------------------
 float Drawable::getX() const {
@@ -86,6 +97,10 @@ void Drawable::update(int elapsed) {
         ttl -= elapsed;
         alive = ttl > 0;
     }
+    
+    if (!alive) {
+        return;
+    }
 
     for (uint i = 0; i < children.size(); ++i) {
         children[i]->update(elapsed);
@@ -94,7 +109,17 @@ void Drawable::update(int elapsed) {
 
 //--------------------------------------------------------------
 uint Drawable::getType() const {
-    return 0;
+    return type;
+}
+
+//--------------------------------------------------------------
+void Drawable::setType(uint t) {
+    type = t;
+}
+
+//--------------------------------------------------------------
+bool Drawable::isOfType(uint t) const {
+    return type & t;
 }
 
 //--------------------------------------------------------------

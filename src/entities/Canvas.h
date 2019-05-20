@@ -19,6 +19,7 @@ private:
 
     ofImage     image;
     ofImage     baseColors;
+    ofColor     initialColor;
     int         width;
     int         height;
     int         tileSize;
@@ -28,7 +29,7 @@ private:
     ofVec2f     overflownPos(int x, int y) const;
     
 public:
-    Canvas(int w, int h, int tileSize);
+    Canvas(int w, int h, int tileSize, ofColor initialColor = ofColor::black);
     
     void        draw() override;
     void        update(int elapsed) override;

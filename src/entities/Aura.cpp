@@ -7,20 +7,32 @@
 
 #include "Aura.h"
 
-#define DEFAULT_RADIUS 100;
-
-class Game;
+//--------------------------------------------------------------
+Aura::Aura(ofColor color, uint radius, float x, float y)
+    : Drawable(x, y), color(color), radius(radius), intensity(2), expansionRate(0) {}
 
 //--------------------------------------------------------------
 Aura::Aura(ofColor col, uint radius, Drawable *parent)
-    : Drawable(parent), color(col), radius(radius), intensity(1), expansionRate(0) {}
+    : Drawable(parent), color(col), radius(radius), intensity(2), expansionRate(0) {}
 
 //--------------------------------------------------------------
-Aura::Aura(ofColor col, Drawable *parent) : Aura(color, 100, NULL) {}
+Aura::Aura(ofColor col, Drawable *parent) : Aura(color, 100, parent) {}
+
+//--------------------------------------------------------------
+Aura::Aura(uint radius, Drawable *parent) : Drawable(parent), intensity(2), radius(radius), expansionRate(0), noColor(true) {}
+
+//--------------------------------------------------------------
+Aura::Aura() : Drawable(), intensity(2), radius(1), expansionRate(0), noColor(true) {}
 
 //--------------------------------------------------------------
 void Aura::setColor(ofColor c) {
+    noColor = false;
     color = c;
+}
+
+//--------------------------------------------------------------
+void Aura::setNoColor() {
+    noColor = true;
 }
 
 //--------------------------------------------------------------
@@ -36,6 +48,11 @@ void Aura::setExpansionRate(unsigned int rate) {
 //--------------------------------------------------------------
 void Aura::setRadius(unsigned int r) {
     radius = r;
+}
+
+//--------------------------------------------------------------
+float Aura::getRadius() const {
+    return radius;
 }
 
 //--------------------------------------------------------------
@@ -55,6 +72,9 @@ void Aura::draw() {
 
 //--------------------------------------------------------------
 void Aura::update(int elapsed) {
+    
+    radius += expansionRate;
+    
     if (parent != NULL) {
         const ofRectangle & parentRect = parent->getGeometry();
         geometry.setPosition(
@@ -76,8 +96,10 @@ void Aura::update(int elapsed) {
         int x = pos.x - len - 1;
         
         while (x <= pos.x + len) {
-            canvas.setColor(x, y, color);
-            canvas.increaseBrightness(x, y, 2);
+            if (!noColor) {
+                canvas.setColor(x, y, color);
+            }
+            canvas.increaseBrightness(x, y, intensity);
             ++x;
         }
         ++y;

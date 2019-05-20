@@ -39,13 +39,3 @@ float Orientable::getRotation() const {
     ofVec2f down(0, - 1);
     return - getOrientation().angle(down);
 }
-
-//--------------------------------------------------------------
-void Orientable::addOrientationX(float x) {
-    setOrientation(orientation.x + x, orientation.y);
-};
-
-//--------------------------------------------------------------
-void Orientable::addOrientationY(float y) {
-    setOrientation(orientation.x, orientation.y + y);
-};

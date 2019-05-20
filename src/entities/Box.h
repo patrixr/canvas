@@ -10,8 +10,10 @@
 
 #include <stdio.h>
 #include "ofMain.h"
+#include "Palette.h"
 #include "constants.h"
 #include "Drawable.h"
+#include "GameEvents.h"
 
 class Box : public Drawable {
     

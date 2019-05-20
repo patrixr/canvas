@@ -11,13 +11,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ofApp::draw():ofApp.cpp">
-      </ContextState>
-      <ContextState
          contextName = "Player::Player(float, float):Player.cpp">
          <PersistentStrings>
             <PersistentString
                value = "geometry.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Player::computeRotation() const:Player.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "pow(2,2)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -38,12 +43,7 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Player::computeRotation() const:Player.cpp">
-         <PersistentStrings>
-            <PersistentString
-               value = "pow(2,2)">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "ofApp::draw():ofApp.cpp">
       </ContextState>
       <ContextState
          contextName = "ofApp::setup():ofApp.cpp">
@@ -74,6 +74,9 @@
          <PersistentStrings>
             <PersistentString
                value = "(int) color.g">
+            </PersistentString>
+            <PersistentString
+               value = "ttl">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -20,6 +20,8 @@ Bullet::Bullet(float x, float y, float vx, float vy)
     setOrientation(vx, vy);
     setSpeed(2);
     setTTL(2000);
+        
+    setType(TYPE_BULLET | TYPE_FRIENDLY);
 }
 
 //--------------------------------------------------------------

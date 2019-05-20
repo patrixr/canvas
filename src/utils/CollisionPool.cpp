@@ -40,7 +40,12 @@ void CollisionPool::computeCollisions(Drawable *obj) {
     
     auto it = others.begin();
     while (it != others.end()) {
-        obj->processCollision(*it);
+        if (!obj->isAlive()) {
+            return;
+        }
+        if ((*it)->isAlive()) {
+            obj->processCollision(*it);
+        }
         ++it;
     }
 }

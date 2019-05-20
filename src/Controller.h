@@ -22,11 +22,13 @@ private:
     std::map<int, bool> pressedKeys;
     
     bool isOrientationKey(int key) const;
+    bool isMoveKey(int key) const;
     
 public:
     Controller(Player *p);
     void keyPressed(int key);
     void keyReleased(int key);
+    void update();
 };
 
 #endif /* Controller_hpp */

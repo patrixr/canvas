@@ -9,16 +9,16 @@
 #define Game_hpp
 
 #include <list>
-#include "Controller.h"
 #include "ofMain.h"
+#include "Aura.h"
+#include "GameEvents.h"
 #include "Canvas.h"
 #include "Player.h"
 #include "Viewport.h"
-#include "Box.h"
-#include "Aura.h"
 #include "constants.h"
-#include "GameEvents.h"
 #include "CollisionPool.h"
+#include "Box.h"
+#include "Controller.h"
 
 using namespace std;
 
@@ -26,6 +26,9 @@ typedef list<Drawable*> ObjectList;
 
 class Player;
 class Controller;
+class GameEvents;
+struct DrawableEventArgs;
+class Aura;
 
 class Game : public ofBaseApp {
     
@@ -45,12 +48,6 @@ private:
     
     
 public:
-    enum ObjTypes {
-        ENEMY = 1,
-        FRIENDLY = 2,
-        TERRAIN = 4
-    };
-    
     static void newGame();
     static void endGame();
     static bool isRunning();
@@ -74,6 +71,7 @@ public:
     void gotMessage(ofMessage msg);
     
     Canvas & getCanvas();
+    ofColor getMainColor() const;
 };
 
 

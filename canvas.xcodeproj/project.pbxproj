@@ -13,6 +13,9 @@
 		21D204C2227E98B80097D634 /* QuadTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D204C0227E98B80097D634 /* QuadTree.cpp */; };
 		21D204C5227E9A720097D634 /* SmartPtr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D204C3227E9A720097D634 /* SmartPtr.cpp */; };
 		21D204C8227EF5970097D634 /* CollisionPool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D204C6227EF5970097D634 /* CollisionPool.cpp */; };
+		21D204CC228155130097D634 /* Explosion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D204CA228155130097D634 /* Explosion.cpp */; };
+		21D204D122816C0E0097D634 /* AuraBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D204CF22816C0E0097D634 /* AuraBuilder.cpp */; };
+		21D204D72282C4AC0097D634 /* Palette.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D204D62282C4AC0097D634 /* Palette.cpp */; };
 		21DD4C982273ED6B00814563 /* Canvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21DD4C962273ED6B00814563 /* Canvas.cpp */; };
 		21DD4CA022743CB900814563 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21DD4C9E22743CB900814563 /* Player.cpp */; };
 		21DD4CA32274451900814563 /* Viewport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21DD4CA12274451900814563 /* Viewport.cpp */; };
@@ -51,6 +54,14 @@
 		21D204C4227E9A720097D634 /* SmartPtr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SmartPtr.h; sourceTree = "<group>"; };
 		21D204C6227EF5970097D634 /* CollisionPool.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CollisionPool.cpp; sourceTree = "<group>"; };
 		21D204C7227EF5970097D634 /* CollisionPool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollisionPool.h; sourceTree = "<group>"; };
+		21D204C922814C870097D634 /* entities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = entities.h; sourceTree = "<group>"; };
+		21D204CA228155130097D634 /* Explosion.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Explosion.cpp; sourceTree = "<group>"; };
+		21D204CB228155130097D634 /* Explosion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Explosion.h; sourceTree = "<group>"; };
+		21D204CD22815CD20097D634 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		21D204CF22816C0E0097D634 /* AuraBuilder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AuraBuilder.cpp; sourceTree = "<group>"; };
+		21D204D022816C0E0097D634 /* AuraBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuraBuilder.h; sourceTree = "<group>"; };
+		21D204D52282C09A0097D634 /* Palette.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Palette.h; sourceTree = "<group>"; };
+		21D204D62282C4AC0097D634 /* Palette.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Palette.cpp; sourceTree = "<group>"; };
 		21DD4C962273ED6B00814563 /* Canvas.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Canvas.cpp; sourceTree = "<group>"; };
 		21DD4C972273ED6B00814563 /* Canvas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Canvas.h; sourceTree = "<group>"; };
 		21DD4C9C2274265F00814563 /* Drawable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Drawable.h; sourceTree = "<group>"; };
@@ -69,7 +80,6 @@
 		21DD4CB12275B48600814563 /* Orientable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Orientable.cpp; sourceTree = "<group>"; };
 		21DD4CB52275B8DC00814563 /* Drawable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Drawable.cpp; sourceTree = "<group>"; };
 		21EC56EF227D40FC00BE731E /* Game.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
-		21EC56F0227D40FC00BE731E /* Game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		E42962AC2163EDD300A6A9E2 /* ofCamera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ofCamera.cpp; path = ../../../libs/openFrameworks/3d/ofCamera.cpp; sourceTree = SOURCE_ROOT; };
 		E42962AD2163EDD300A6A9E2 /* ofMesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ofMesh.h; path = ../../../libs/openFrameworks/3d/ofMesh.h; sourceTree = SOURCE_ROOT; };
 		E42962AE2163EDD300A6A9E2 /* ofNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ofNode.h; path = ../../../libs/openFrameworks/3d/ofNode.h; sourceTree = SOURCE_ROOT; };
@@ -277,13 +287,20 @@
 			path = utils;
 			sourceTree = "<group>";
 		};
+		21D204CE22816BF20097D634 /* factories */ = {
+			isa = PBXGroup;
+			children = (
+				21D204CF22816C0E0097D634 /* AuraBuilder.cpp */,
+				21D204D022816C0E0097D634 /* AuraBuilder.h */,
+			);
+			path = factories;
+			sourceTree = "<group>";
+		};
 		21DD4CA4227454BD00814563 /* bases */ = {
 			isa = PBXGroup;
 			children = (
-				21DD4C9C2274265F00814563 /* Drawable.h */,
 				21DD4CA52274552700814563 /* Moveable.cpp */,
 				21DD4CA62274552700814563 /* Moveable.h */,
-				21DD4CB52275B8DC00814563 /* Drawable.cpp */,
 			);
 			path = bases;
 			sourceTree = "<group>";
@@ -291,9 +308,12 @@
 		21DD4CAC22753DB600814563 /* entities */ = {
 			isa = PBXGroup;
 			children = (
+				21DD4C9C2274265F00814563 /* Drawable.h */,
+				21D204CE22816BF20097D634 /* factories */,
 				21DD4CB42275B53E00814563 /* traits */,
 				21DD4CA4227454BD00814563 /* bases */,
 				21DD4C962273ED6B00814563 /* Canvas.cpp */,
+				21DD4CB52275B8DC00814563 /* Drawable.cpp */,
 				21DD4C972273ED6B00814563 /* Canvas.h */,
 				21DD4C9E22743CB900814563 /* Player.cpp */,
 				21DD4C9F22743CB900814563 /* Player.h */,
@@ -303,6 +323,9 @@
 				211F310722799B5C00E930E0 /* Bullet.h */,
 				21D204BC227DBE0D0097D634 /* Box.cpp */,
 				21D204BD227DBE0D0097D634 /* Box.h */,
+				21D204C922814C870097D634 /* entities.h */,
+				21D204CA228155130097D634 /* Explosion.cpp */,
+				21D204CB228155130097D634 /* Explosion.h */,
 			);
 			path = entities;
 			sourceTree = "<group>";
@@ -628,6 +651,7 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				21D204CD22815CD20097D634 /* Game.h */,
 				21D204BF227E988D0097D634 /* utils */,
 				21DD4CAC22753DB600814563 /* entities */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
@@ -641,7 +665,8 @@
 				211F310322798FBD00E930E0 /* GameEvents.h */,
 				211F310422799A4F00E930E0 /* GameEvents.cpp */,
 				21EC56EF227D40FC00BE731E /* Game.cpp */,
-				21EC56F0227D40FC00BE731E /* Game.h */,
+				21D204D52282C09A0097D634 /* Palette.h */,
+				21D204D62282C4AC0097D634 /* Palette.cpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -752,15 +777,18 @@
 				21DD4CA022743CB900814563 /* Player.cpp in Sources */,
 				21DD4CAF22753E4700814563 /* Aura.cpp in Sources */,
 				21DD4CA72274552700814563 /* Moveable.cpp in Sources */,
+				21D204D122816C0E0097D634 /* AuraBuilder.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				21DD4CAB2275391F00814563 /* Controller.cpp in Sources */,
 				21EC56F1227D40FC00BE731E /* Game.cpp in Sources */,
 				211F310822799B5C00E930E0 /* Bullet.cpp in Sources */,
 				21DD4CB62275B8DC00814563 /* Drawable.cpp in Sources */,
+				21D204D72282C4AC0097D634 /* Palette.cpp in Sources */,
 				21DD4CB32275B48600814563 /* Orientable.cpp in Sources */,
 				211F310522799A4F00E930E0 /* GameEvents.cpp in Sources */,
 				21DD4C982273ED6B00814563 /* Canvas.cpp in Sources */,
+				21D204CC228155130097D634 /* Explosion.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

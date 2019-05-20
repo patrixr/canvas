@@ -25,8 +25,6 @@ public:
     const float getOrientationY() const;
     float setOrientation(float x, float y);
     float setOrientation(ofVec2f v);
-    void addOrientationX(float x);
-    void addOrientationY(float y);
 };
 
 

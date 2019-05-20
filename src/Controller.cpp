@@ -23,77 +23,47 @@ bool Controller::isOrientationKey(int key) const {
 }
 
 //--------------------------------------------------------------
-void Controller::keyPressed(int key) {
-    if (pressedKeys[key]) {
-        return;
-    }
+bool Controller::isMoveKey(int key) const {
+    return (
+        key == 'd' ||
+        key == 'a' ||
+        key == 's' ||
+        key == 'w'
+    );
+}
+
+//--------------------------------------------------------------
+void Controller::update() {
+    float vx = 0;
+    float vy = 0;
     
-    pressedKeys[key] = true;
+    if (pressedKeys['w']) { vy -= 1; }
+    if (pressedKeys['s']) { vy += 1; }
+    if (pressedKeys['a']) { vx -= 1; }
+    if (pressedKeys['d']) { vx += 1; }
     
-    switch (key) {
-        case 'd':
-            player->addVelocityX(1);
-            break;
-        case 'a':
-            player->addVelocityX(-1);
-            break;
-        case 'w':
-            player->addVelocityY(-1);
-            break;
-        case 's':
-            player->addVelocityY(1);
-            break;
-        case OF_KEY_UP:
-            player->addOrientationY(-1);
-            break;
-        case OF_KEY_DOWN:
-            player->addOrientationY(1);
-            break;
-        case OF_KEY_LEFT:
-            player->addOrientationX(-1);
-            break;
-        case OF_KEY_RIGHT:
-            player->addOrientationX(1);
-            break;
-        default:
-            break;
+    player->setVelocity(vx, vy);
+    
+    float ox = 0;
+    float oy = 0;
+    
+    if (pressedKeys[OF_KEY_UP]) { oy -= 1; }
+    if (pressedKeys[OF_KEY_DOWN]) { oy += 1; }
+    if (pressedKeys[OF_KEY_LEFT]) { ox -= 1; }
+    if (pressedKeys[OF_KEY_RIGHT]) { ox += 1; }
+    
+    if (ox != 0 || oy != 0) {
+        player->shoot();
+        player->setOrientation(ox, oy);
     }
 }
 
 //--------------------------------------------------------------
+void Controller::keyPressed(int key) {
+    pressedKeys[key] = true;
+}
+
+//--------------------------------------------------------------
 void Controller::keyReleased(int key) {
-    if (!pressedKeys[key]) {
-        return;
-    }
-    
     pressedKeys[key] = false;
-    
-    switch (key) {
-        case 'd':
-            player->addVelocityX(-1);
-            break;
-        case 'a':
-            player->addVelocityX(1);
-            break;
-        case 'w':
-            player->addVelocityY(1);
-            break;
-        case 's':
-            player->addVelocityY(-1);
-            break;
-        case OF_KEY_UP:
-            player->addOrientationY(1);
-            break;
-        case OF_KEY_DOWN:
-            player->addOrientationY(-1);
-            break;
-        case OF_KEY_LEFT:
-            player->addOrientationX(1);
-            break;
-        case OF_KEY_RIGHT:
-            player->addOrientationX(-1);
-            break;
-        default:
-            break;
-    }
 }

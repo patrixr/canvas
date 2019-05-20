@@ -17,6 +17,7 @@ class Moveable : public Drawable {
 protected:
     
     ofVec2f     velocity;
+    ofVec2f     targetVelocity;
     ofRectangle boundaries;
     float       speed;
     float       acceleration;
@@ -33,8 +34,6 @@ public:
     
     void setVelocityX(ofVec2f v);
     void setVelocity(float x, float y);
-    void addVelocityX(float x);
-    void addVelocityY(float y);
     void setSpeed(float speed);
     void setAreaBounds(ofRectangle bounds, bool enableLoop = false);
     

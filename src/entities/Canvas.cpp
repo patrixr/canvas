@@ -8,8 +8,8 @@
 #include "Canvas.h"
 
 //--------------------------------------------------------------
-Canvas::Canvas(int w, int h, int tileSize)
-    : Drawable(0, 0, w * tileSize, h * tileSize), tileSize(tileSize)
+Canvas::Canvas(int w, int h, int tileSize, ofColor initialColor)
+    : Drawable(0, 0, w * tileSize, h * tileSize), tileSize(tileSize), initialColor(initialColor)
 {
     width = w;
     height = h;
@@ -100,7 +100,7 @@ void Canvas::reset(ofImage & img) {
 
     for (int x = 0; x < width; ++x) {
         for (int y = 0; y < height; ++y) {
-            img.setColor(x, y, ofColor(25, 25, 25));
+            img.setColor(x, y, initialColor);
         }
     }
     img.update();

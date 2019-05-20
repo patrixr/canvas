@@ -53,9 +53,10 @@ Game::~Game() {
 //--------------------------------------------------------------
 void Game::setup(){
     ofAddListener(GameEvents::EVT_SPAWN, this, &Game::handleSpawn);
-    canvas = new Canvas(CANVAS_W, CANVAS_H, TILE_SIZE);
+    canvas = new Canvas(CANVAS_W, CANVAS_H, TILE_SIZE, getMainColor());
     player = new Player(250, 250);
     player->setSpeed(PLAYER_SPEED);
+//    player-d>setAuraColor(getMainColor());
     player->setAreaBounds(canvas->getGeometry(), true);
     viewport = new Viewport();
     viewport->follow(player, CAMERA_DISTANCE);
@@ -79,6 +80,8 @@ void Game::setup(){
 //--------------------------------------------------------------
 void Game::update(){
     int dt = ofGetElapsedTimeMillis();
+    
+    controller->update();
     
     auto it = objects.begin();
     CollisionPool pool(getCanvas().getGeometry());
@@ -180,4 +183,9 @@ void Game::dragEvent(ofDragInfo dragInfo){
 //--------------------------------------------------------------
 Canvas & Game::getCanvas() {
     return *canvas;
+}
+
+//--------------------------------------------------------------
+ofColor Game::getMainColor() const {
+    return ofColor::teal;
 }

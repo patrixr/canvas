@@ -15,3 +15,14 @@ void GameEvents::spawn(Drawable *obj) {
     args.obj = obj;
     ofNotifyEvent(GameEvents::EVT_SPAWN, args);
 }
+
+// -----------------------------------------------
+void GameEvents::explode(const Drawable *obj, ofColor c) {
+    explode(*obj, c);
+}
+
+// -----------------------------------------------
+void GameEvents::explode(const Drawable & obj, ofColor c) {
+    Explosion *exp = new Explosion(obj.getX(), obj.getY(), c);
+    spawn(exp);
+}
