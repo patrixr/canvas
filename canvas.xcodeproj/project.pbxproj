@@ -299,6 +299,8 @@
 		21DD4CA4227454BD00814563 /* bases */ = {
 			isa = PBXGroup;
 			children = (
+				21DD4C9C2274265F00814563 /* Drawable.h */,
+				21DD4CB52275B8DC00814563 /* Drawable.cpp */,
 				21DD4CA52274552700814563 /* Moveable.cpp */,
 				21DD4CA62274552700814563 /* Moveable.h */,
 			);
@@ -308,12 +310,10 @@
 		21DD4CAC22753DB600814563 /* entities */ = {
 			isa = PBXGroup;
 			children = (
-				21DD4C9C2274265F00814563 /* Drawable.h */,
 				21D204CE22816BF20097D634 /* factories */,
 				21DD4CB42275B53E00814563 /* traits */,
 				21DD4CA4227454BD00814563 /* bases */,
 				21DD4C962273ED6B00814563 /* Canvas.cpp */,
-				21DD4CB52275B8DC00814563 /* Drawable.cpp */,
 				21DD4C972273ED6B00814563 /* Canvas.h */,
 				21DD4C9E22743CB900814563 /* Player.cpp */,
 				21DD4C9F22743CB900814563 /* Player.h */,
