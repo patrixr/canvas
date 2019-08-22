@@ -1,5 +1,7 @@
 # Canvas
 
+**(in progress)**
+
 Canvas is a 2D concept game in which you drive a spaceship and shoot at things over a grid of coloured squares.
 
 All the user actions change the colours of the tiles of the grid.
